@@ -20,3 +20,23 @@ Exercise 1.2
    (* 3 
 	  (- 6 2)
 	  (- 2 7)))
+	  
+Exercise 1.3
+#lang simply-scheme
+(define (sum-largest-squares a b c)
+  (cond ((and (> a b) (> b c)) (* a b))
+        ((and (> a b) (> c b)) (* a c))
+        (else (* b c))))
+	  
+Exercise 1.4
+This procedure defines a procedure called a-plus-abs-b with formal parameters a and b. The body
+of the procedure specifies that if b > 0, b is added to a, and if b is < 0, b is subtracted
+from a. In this way, the absolute value of b is added to a. This procedure uses an operator
+that is a compound expression.
+
+Exercise 1.5
+Applicative-order: The expression he evaluates will get stuck in the recursive (p) call.
+Normal-order: The expression returns 0.
+Explanation: Applicative-order would evaluate (p) first. Normal-order would expand out to
+(if (= 0 0) 0 (p)) which returns 0 when evaluated as specified in the questions. It avoids
+the (p) call altogether.
