@@ -40,3 +40,20 @@ Normal-order: The expression returns 0.
 Explanation: Applicative-order would evaluate (p) first. Normal-order would expand out to
 (if (= 0 0) 0 (p)) which returns 0 when evaluated as specified in the questions. It avoids
 the (p) call altogether.
+
+Exercise 1.6
+When Alyssa attempts to compute a square root, each of the arguments of new-if are evaluated.
+As a result, the recursive call to sqrt-iter will always be evaluated causing an infinite loop.
+This is the difference between the if special form and the procedure new-if. For called
+procedures, every argument gets called regardless of applicative or normal order. The special
+form if differs because its predicate is evaluated first, then it executes the first expression
+if true - ignoring the second - and the second if false - ignoring the first.
+
+Exercise 1.7
+For example take .00001 the procedure outputs ~.031, but the actual is .0031. A guess could 
+be significantly off but the initial value is so small that the good-enough? check passes
+since the tolerance is larger at .001. Another example is 999999. A large value eventually
+hits the memory limits of the system in our version of scheme by getting longer and longer
+fractional values. A system that truncates would be comparing imprecise guesses with each
+check. Updating the function to compare the pevious guess to the current one does improve
+accuracy of the function.
