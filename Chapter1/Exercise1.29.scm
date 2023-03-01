@@ -7,16 +7,17 @@
       (+ (term a)
          (sum term (next a) next b))))
 
-(define (integral f a b dx)
-  (define (add-dx x)
-    (+ x dx))
-  (* (sum f (+ a (/ dx 2.0)) add-dx b)
-     dx))
-
-(define (integral-simp f a b n)
+(define (simpson f a b n)
   (define h
     (/ (- b a) n))
-  (define (add-h x)
-    (+ x h))
-  (* (sum f a add-h b)
-     (/ h 3)))
+  (define (increment k)
+    (+ k 1))
+  (define (redef k)
+    (cond ((or (= k 0) (= k n)) (f (+ a (* k h))))
+          ((= (remainder k 2) 0) (* (f (+ a (* k h))) 2))
+          (else (* (f (+ a (* k h))) 4))))
+  (* (sum redef 0 increment n)
+     (/ h 3.0)))
+
+(simpson cube 0 1 100)
+(simpson cube 0 1 1000)
