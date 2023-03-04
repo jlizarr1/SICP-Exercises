@@ -6,3 +6,6 @@ See "Exercise1.30.scm"
 
 Exercise 1.31
 See "Exercise1.31.scm"
+
+Exercise 1.32
+See "Exercise1.32.scm"
