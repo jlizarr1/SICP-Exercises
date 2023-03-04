@@ -3,3 +3,6 @@ See "Exercise1.29.scm"
 
 Exercise 1.30
 See "Exercise1.30.scm"
+
+Exercise 1.31
+See "Exercise1.31.scm"
